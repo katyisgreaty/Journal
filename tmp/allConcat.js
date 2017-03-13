@@ -8,12 +8,10 @@ $(document).ready(function() {
     var words = thisEntry.wordCount(body);
     var chars = thisEntry.charCount(body);
     var teaser = thisEntry.getTeaser(body);
-    teaser.forEach(function(element) {
-      $('#teaser').append(element + " ");
-    });
 
     $("#word-count").text(words);
     $("#char-count").text(chars);
+    $("#teaser").text(teaser);
 
   });
 });

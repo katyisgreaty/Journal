@@ -22,12 +22,26 @@ Entry.prototype.charCount = function(body) {
 };
 
 Entry.prototype.getTeaser = function(body) {
-  var firstEight = [];
-  var words = body.split(" ");
-  for (var k = 0; k <= 7; k++) {
-    firstEight.push(words[k]);
+  var punctuation = [".", "!", "?"];
+  for (var k = 0; k < body.length; k++) {
+    if ((punctuation.indexOf(body[k])) != -1) {
+      var slice_location = k;
+      var first_sentence = body.slice(0,slice_location + 1);
+      var sentence_words = first_sentence.split(" ");
+      if (sentence_words.length <= 8) {
+        return sentence_words.join(" ");
+      } else {
+        var newArray = []
+        for(i = 0; i < 8; i++)
+        {
+          newArray.push(sentence_words[i]);
+        }
+        return newArray.join(" ");
+      }
+      break;
+    }
   }
-  return firstEight;
 };
+
 
 exports.entryModule = Entry;
