@@ -5,7 +5,10 @@ $(document).ready(function() {
     event.preventDefault();
     var body = $('#entry').val();
     var thisEntry = new Entry();
-    var output = thisEntry.wordCount(body);
-    $("#entries").append(output);
+    var words = thisEntry.wordCount(body);
+    var chars = thisEntry.charCount(body);
+
+    $("#word-count").text(words);
+    $("#char-count").text(chars);
   });
 });

@@ -9,4 +9,16 @@ Entry.prototype.wordCount = function(body) {
   return output;
 };
 
+Entry.prototype.charCount = function(body) {
+  var vowels = ["a", "e", "i", "o", "u"];
+  var count = 0;
+
+  for (var j = 0; j <= body.length; j++) {
+    if (vowels.indexOf(body[j]) != -1) {
+      count += 1;
+    }
+  }
+  return count;
+};
+
 exports.entryModule = Entry;
