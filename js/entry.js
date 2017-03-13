@@ -21,4 +21,13 @@ Entry.prototype.charCount = function(body) {
   return count;
 };
 
+Entry.prototype.getTeaser = function(body) {
+  var firstEight = [];
+  var words = body.split(" ");
+  for (var k = 0; k <= 7; k++) {
+    firstEight.push(words[k]);
+  }
+  return firstEight;
+};
+
 exports.entryModule = Entry;
